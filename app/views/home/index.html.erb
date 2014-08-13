@@ -1,0 +1,9 @@
+<h1>Home</h1>
+
+<%= form_tag(home_path, method: :post) do %>
+
+  <label>User names</label>
+  <%= text_area_tag :user_names %>
+  <br/>
+  <%= submit_tag "Send" %>
+<% end %>
