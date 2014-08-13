@@ -32,7 +32,7 @@ end
 gem 'friendly_id'
 gem 'mysql2'
 gem 'nokogiri', '~> 1.6.3.1'
-gem 'rails_12factor'
+# gem 'rails_12factor'
 gem 'thin'
 
 # Use ActiveModel has_secure_password
