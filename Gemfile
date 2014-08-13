@@ -33,6 +33,7 @@ gem 'friendly_id'
 gem 'mysql2'
 gem 'nokogiri', '~> 1.6.3.1'
 gem 'sidekiq'
+gem 'sidekiq-limit_fetch'
 gem 'thin'
 
 # Use ActiveModel has_secure_password
