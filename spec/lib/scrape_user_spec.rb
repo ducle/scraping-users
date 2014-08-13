@@ -16,5 +16,7 @@ RSpec.describe ScrapeUser do
     user = scrape.fetch_user_detail
     expect(user[:contacts]) == ['carlee-parker-jr', 'carlee-parker-jr', 'carlee-parker-jr', 'lilly-runolfsdottir']
     expect(user[:age]) == 61
+    expect(user[:name]) == 'Mr. Elvis Dietrich'
+    expect(user[:slug]) == slug
   end
 end

@@ -15,12 +15,19 @@ class ScrapeUser
 
   def fetch_user_detail
     contacts = []
-    doc = Nokogiri::HTML(open(self.user_url))
-    age = doc.at_css("#age").try(:text)
-    doc.css("#friends-list li").each do |li|
-      contacts << li.text
+    age = nil
+    name = nil
+    begin
+      doc = Nokogiri::HTML(open(self.user_url))
+      age  = doc.at_css("#age").try(:text)
+      name = doc.at_css("h1").try(:text)
+      doc.css("#friends-list li").each do |li|
+        contacts << li.text
+      end
+    rescue OpenURI::HTTPError => e
+      puts e.message
     end
-    {contacts: contacts, age: age}
+    {contacts: contacts, age: age, name: name, slug: @user_slug}
   end
 
 end
