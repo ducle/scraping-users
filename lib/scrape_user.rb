@@ -16,10 +16,11 @@ class ScrapeUser
   def fetch_user_detail
     contacts = []
     doc = Nokogiri::HTML(open(self.user_url))
+    age = doc.at_css("#age").try(:text)
     doc.css("#friends-list li").each do |li|
       contacts << li.text
     end
-    {contacts: contacts}
+    {contacts: contacts, age: age}
   end
 
 end
